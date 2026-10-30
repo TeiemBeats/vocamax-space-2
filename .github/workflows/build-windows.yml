@@ -11,7 +11,7 @@ permissions:
 jobs:
   build-windows:
     name: Windows 10 / 11 (x64)
-    runs-on: windows-latest
+    runs-on: windows-2022
 
     steps:
       - name: Checkout
@@ -20,7 +20,7 @@ jobs:
       - name: Configure
         run: >
           cmake -S . -B build -G "Visual Studio 17 2022" -A x64
-          -DVOCOMAX_BUILD_DSP_TESTS=ON
+          -DVOCAMAX_BUILD_DSP_TESTS=ON
 
       - name: Build VST3 and Standalone
         run: cmake --build build --config Release --parallel 4
@@ -39,9 +39,9 @@ jobs:
       - name: Build installer (Inno Setup)
         shell: pwsh
         run: |
-          $iscc = "C:/Program Files (x86)/Inno Setup 6/ISCC.exe"
+          $iscc = "C:\\Program Files (x86)\\Inno Setup 6\\ISCC.exe"
           if (-not (Test-Path $iscc)) { throw "Inno Setup 6 not found" }
-          & $iscc "installer/VocaMaxSpace2.iss"
+          & $iscc "installer\\VocaMaxSpace2.iss"
           if ($LASTEXITCODE -ne 0) { throw "Inno Setup failed" }
 
       - name: Upload installer + plugin
