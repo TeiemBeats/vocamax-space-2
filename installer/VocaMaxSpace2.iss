@@ -39,8 +39,8 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "Create a desktop shortcut"; GroupDescription: "Additional shortcuts:"
 
 [Files]
-; VST3 plugin file (Windows VST3 is a single .vst3 DLL) -> C:\Program Files\Common Files\VST3
-Source: "{#MyVst3Bundle}"; DestDir: "{commoncf}\VST3"; Flags: ignoreversion
+; VST3 bundle -> C:\Program Files\Common Files\VST3
+Source: "{#MyVst3Bundle}\*"; DestDir: "{commoncf}\VST3\VocaMax Space 2.vst3"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; Standalone app (works without a DAW)
 Source: "{#MyStandaloneExe}"; DestDir: "{app}"; Flags: ignoreversion
 
