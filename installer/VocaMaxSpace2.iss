@@ -39,8 +39,8 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "Create a desktop shortcut"; GroupDescription: "Additional shortcuts:"
 
 [Files]
-; VST3 bundle -> C:\Program Files\Common Files\VST3
-Source: "{#MyVst3Bundle}\*"; DestDir: "{commoncf}\VST3\VocaMax Space 2.vst3"; Flags: ignoreversion recursesubdirs createallsubdirs
+; VST3 plugin file (Windows VST3 is a single .vst3 DLL) -> C:\Program Files\Common Files\VST3
+Source: "{#MyVst3Bundle}"; DestDir: "{commoncf}\VST3"; Flags: ignoreversion
 ; Standalone app (works without a DAW)
 Source: "{#MyStandaloneExe}"; DestDir: "{app}"; Flags: ignoreversion
 
@@ -62,7 +62,6 @@ begin
   if WizardSilent then
     exit;
 
-  if MsgBox('Close your DAW before installing so it can pick up the new plugin.' + #13#10 +
-            'Continue anyway?', mbConfirmation, MB_YESNO) = IDNO then
+  if MsgBox('Close your DAW before installing so it can pick up the new plugin. Continue anyway?', mbConfirmation, MB_YESNO) = IDNO then
     Result := False;
 end;
