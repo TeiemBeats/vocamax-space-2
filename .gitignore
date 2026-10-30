@@ -1,0 +1,11 @@
+build/
+dist/
+.gh-fix/
+JUCE/
+.vs/
+*.user
+*.suo
+*.sln
+CMakeUserPresets.json
+node_modules/
+.DS_Store
