@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VocaMax Space 2 - By Mark33s Beats Lab</title>
+<meta name="description" content="VocaMax Space 2 - vocal separation, space control, clarity and power. VST3 for Windows 10 and 11, works with any DAW." />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="page">
+  <div class="bg-glow" aria-hidden="true"></div>
+  <div class="starfield" aria-hidden="true"></div>
+
+  <header class="hero">
+    <div class="hero-brand">
+      <div class="crown" aria-hidden="true">
+        <svg viewBox="0 0 64 44" fill="none">
+          <defs>
+            <linearGradient id="crownGrad" x1="0" y1="0" x2="64" y2="44" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f4fcff" /><stop offset=".55" stop-color="#8fdcff" /><stop offset="1" stop-color="#2a9dff" />
+            </linearGradient>
+          </defs>
+          <path d="M4 40 L4 12 L20 27 L31 5 L42 26 L57 10 L57 40 Z" fill="url(#crownGrad)" />
+          <circle cx="4" cy="8" r="3.2" fill="#e8f9ff" />
+          <circle cx="31" cy="3" r="3.6" fill="#e8f9ff" />
+          <circle cx="57" cy="6" r="3.2" fill="#e8f9ff" />
+        </svg>
+      </div>
+      <h1 class="wordmark"><span>VocaMax</span> <em>Space 2</em></h1>
+      <p class="byline">By Mark33s Beats Lab</p>
+    </div>
+
+    <div class="hero-notes">
+      <p>Vocal separation</p>
+      <p>Space control</p>
+      <p>Clarity &middot; Balance &middot; Power</p>
+    </div>
+  </header>
+
+  <main class="console" aria-label="VocaMax Space 2 interface">
+    <div class="console-head">
+      <div class="mini-brand">
+        <svg class="mini-crown" viewBox="0 0 64 44" fill="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="crownGradMini" x1="0" y1="0" x2="64" y2="44" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f4fcff" /><stop offset=".55" stop-color="#8fdcff" /><stop offset="1" stop-color="#2a9dff" />
+            </linearGradient>
+          </defs>
+          <path d="M4 40 L4 12 L20 27 L31 5 L42 26 L57 10 L57 40 Z" fill="url(#crownGradMini)" />
+        </svg>
+        <div class="mini-text">
+          <span class="mini-title">VocaMax <em>Space 2</em></span>
+          <span class="mini-sub">By Mark33s Beats Lab</span>
+        </div>
+      </div>
+
+      <div class="preset-bar">
+        <button class="chip-btn nav" id="presetPrev" aria-label="Previous preset">&#8249;</button>
+        <select id="presetSelect" aria-label="Preset">
+          <option>Default</option>
+          <option>Natural Vocals</option>
+          <option>Clear Vocals</option>
+          <option>Wide Space</option>
+          <option>Deep Pocket</option>
+          <option>Tight &amp; Bright</option>
+          <option>Max Space</option>
+          <option>Radio Ready</option>
+        </select>
+        <button class="chip-btn nav" id="presetNext" aria-label="Next preset">&#8250;</button>
+        <button class="chip-btn" id="savePreset" aria-label="Save preset" title="Save preset (.vmx2 settings file)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M5 4h11l3 3v13H5z" /><path d="M8 4v5h7V4" /><path d="M8 13h8v7H8z" />
+          </svg>
+        </button>
+        <button class="chip-btn" id="settingsBtn" aria-label="Settings" title="Settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <circle cx="12" cy="12" r="3.4" />
+            <path d="M12 2.8v3M12 18.2v3M2.8 12h3M18.2 12h3M5.5 5.5l2.1 2.1M16.4 16.4l2.1 2.1M18.5 5.5l-2.1 2.1M7.6 16.4l-2.1 2.1" />
+          </svg>
+        </button>
+        <button class="chip-btn" id="helpBtn" aria-label="Help" title="How to use">?</button>
+      </div>
+    </div>
+
+    <div class="knobs">
+      <div class="knob-unit" data-knob="low">
+        <div class="knob-title">Low Frequency</div>
+        <div class="knob-stage"><canvas class="knob-canvas" data-knob="low" width="180" height="180"
+          role="slider" tabindex="0" aria-label="Low frequency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="45"></canvas></div>
+        <div class="knob-scale"><span>0%</span><span>100%</span></div>
+        <div class="knob-readout" data-readout="low">45%</div>
+        <div class="knob-sub">Tighten / Remove</div>
+      </div>
+
+      <div class="knob-unit power" data-knob="power">
+        <div class="knob-title">Power</div>
+        <div class="knob-stage"><canvas class="knob-canvas" data-knob="power" width="230" height="230"
+          role="slider" tabindex="0" aria-label="Power" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"></canvas></div>
+        <div class="knob-scale"><span>Min</span><span>Max</span></div>
+        <div class="knob-readout" data-readout="power">100%</div>
+        <div class="knob-sub">Overall Control</div>
+      </div>
+
+      <div class="knob-unit" data-knob="space">
+        <div class="knob-title">Space</div>
+        <div class="knob-stage"><canvas class="knob-canvas" data-knob="space" width="190" height="190"
+          role="slider" tabindex="0" aria-label="Space" aria-valuemin="0" aria-valuemax="100" aria-valuenow="65"></canvas></div>
+        <div class="knob-scale split"><span>Less space</span><span>More space</span></div>
+        <div class="knob-readout" data-readout="space">65%</div>
+        <div class="knob-sub">Vocal Separation</div>
+      </div>
+
+      <div class="knob-unit" data-knob="high">
+        <div class="knob-title">High Frequency</div>
+        <div class="knob-stage"><canvas class="knob-canvas" data-knob="high" width="180" height="180"
+          role="slider" tabindex="0" aria-label="High frequency" aria-valuemin="0" aria-valuemax="100" aria-valuenow="55"></canvas></div>
+        <div class="knob-scale"><span>0%</span><span>100%</span></div>
+        <div class="knob-readout" data-readout="high">55%</div>
+        <div class="knob-sub">Brighten / Remove</div>
+      </div>
+    </div>
+
+    <div class="console-foot">
+      <div class="meter-block">
+        <div class="meter-label">Input</div>
+        <canvas id="inputMeter" class="meter" width="640" height="120" aria-hidden="true"></canvas>
+        <div class="meter-scale"><span>-60</span><span>-36</span><span>-12</span><span>0</span></div>
+      </div>
+
+      <div class="focus-block">
+        <div class="focus-title">Vocal Focus Mode</div>
+        <div class="focus-buttons" role="group" aria-label="Vocal focus mode">
+          <button type="button" class="focus-btn" data-focus="0">Natural</button>
+          <button type="button" class="focus-btn active" data-focus="1">Clear</button>
+          <button type="button" class="focus-btn" data-focus="2">Wide</button>
+          <button type="button" class="focus-btn" data-focus="3">Deep</button>
+        </div>
+      </div>
+
+      <div class="meter-block">
+        <div class="meter-label">Output</div>
+        <canvas id="outputMeter" class="meter" width="640" height="120" aria-hidden="true"></canvas>
+        <div class="meter-scale"><span>-60</span><span>-36</span><span>-12</span><span>0</span></div>
+      </div>
+    </div>
+  </main>
+
+  <section class="audio-dock" aria-label="Live audio preview">
+    <div class="dock-status">
+      <span class="status-dot" id="statusDot"></span>
+      <span class="status-head">Live preview</span>
+      <span id="audioStatus">Start the demo loop, load a track or use your microphone.</span>
+    </div>
+    <div class="dock-actions">
+      <button class="btn primary" id="demoBtn">Play demo loop</button>
+      <button class="btn" id="micBtn">Microphone</button>
+      <label class="btn">Load audio<input type="file" id="fileInput" accept="audio/*" /></label>
+      <button class="btn ghost" id="stopBtn">Stop</button>
+    </div>
+  </section>
+
+  <section class="platform-band" aria-label="Compatibility">
+    <div class="platform">
+      <svg class="windows-logo" viewBox="0 0 48 48" aria-hidden="true">
+        <rect x="2" y="3" width="20" height="19" fill="#48c8ff" opacity=".9" />
+        <rect x="26" y="3" width="20" height="19" fill="#2a9dff" opacity=".8" />
+        <rect x="2" y="26" width="20" height="19" fill="#2a9dff" opacity=".8" />
+        <rect x="26" y="26" width="20" height="19" fill="#7fe3ff" opacity=".9" />
+      </svg>
+      <div class="platform-text">
+        <h2>Windows 10 &amp; 11</h2>
+        <p>VST3 / VST installer</p>
+      </div>
+    </div>
+
+    <div class="daw-list" aria-label="Works with any DAW">
+      <span class="daw">FL Studio</span>
+      <span class="daw">Ableton Live</span>
+      <span class="daw">Logic Pro</span>
+      <span class="daw">Cubase</span>
+      <span class="daw">Studio One</span>
+      <span class="daw">REAPER</span>
+      <span class="daw">Pro Tools</span>
+      <span class="daw">Bitwig</span>
+      <span class="daw muted">and more...</span>
+    </div>
+  </section>
+
+  <section class="features" aria-label="Features">
+    <div class="feature">
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+        <path d="M3 16h3l2-7 3 14 3-11 3 8 3-12 3 10 2-2h4" />
+      </svg>
+      <p><strong>Separate vocals</strong><span>from instruments</span></p>
+    </div>
+    <div class="feature">
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+        <path d="M8 26V12M16 26V6M24 26v-8" /><circle cx="8" cy="9" r="2" /><circle cx="16" cy="4" r="2" /><circle cx="24" cy="15" r="2" />
+      </svg>
+      <p><strong>Control low &amp; high</strong><span>frequencies</span></p>
+    </div>
+    <div class="feature">
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+        <circle cx="16" cy="16" r="3" /><ellipse cx="16" cy="16" rx="13" ry="5.5" transform="rotate(30 16 16)" /><ellipse cx="16" cy="16" rx="13" ry="5.5" transform="rotate(-30 16 16)" />
+      </svg>
+      <p><strong>Adjust space</strong><span>between vocals</span></p>
+    </div>
+    <div class="feature">
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+        <path d="M18 3 8 18h7l-1 11 10-15h-7z" />
+      </svg>
+      <p><strong>Power knob</strong><span>for overall control</span></p>
+    </div>
+    <div class="feature">
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+        <path d="M9 4h14l-2 9H11z" /><path d="M11 13h10l3 15H8z" /><path d="M12 20h8" />
+      </svg>
+      <p><strong>Clearer vocals</strong><span>cleaner mixes</span></p>
+    </div>
+    <div class="feature">
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+        <path d="M10 10a6 6 0 1 0 0 12h4" /><path d="M22 22a6 6 0 1 0 0-12h-4" />
+      </svg>
+      <p><strong>Pro results</strong><span>in any DAW</span></p>
+    </div>
+  </section>
+
+  <footer class="page-foot">
+    <p>VocaMax Space 2 &middot; By Mark33s Beats Lab</p>
+    <p>Zero added latency &middot; Automatable &middot; 64-bit VST3</p>
+  </footer>
+</div>
+
+<div class="modal-backdrop" id="modal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-head">
+      <h2 id="modalTitle">About VocaMax Space 2</h2>
+      <button type="button" class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<noscript>
+  <p class="noscript">VocaMax Space 2 needs JavaScript for the interactive preview. The VST3 itself works in your DAW.</p>
+</noscript>
+
+<script src="app.js"></script>
+</body>
+</html>
