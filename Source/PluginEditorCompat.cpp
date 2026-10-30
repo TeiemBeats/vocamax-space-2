@@ -8,5 +8,5 @@
 
 #include "PluginEditor.h"
 
-#define setExtraKerningFactor(...) setLineSpacing
+#define setExtraKerningFactor setLineSpacing
 #include "PluginEditor.cpp"
