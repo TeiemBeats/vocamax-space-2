@@ -47,7 +47,7 @@ juce_add_plugin(VocaMaxSpace2
 
 target_sources(VocaMaxSpace2 PRIVATE
     Source/PluginProcessor.cpp
-    Source/PluginEditor.cpp)
+    Source/PluginEditorCompat.cpp)
 
 target_include_directories(VocaMaxSpace2 PRIVATE Source)
 
